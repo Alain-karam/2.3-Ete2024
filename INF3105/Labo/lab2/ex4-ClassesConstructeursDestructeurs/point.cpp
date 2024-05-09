@@ -1,20 +1,24 @@
 #include <assert.h>
 #include "point.h"
+#include <math.h>
 
 Point::Point(double _x, double _y)
   : x(_x), y(_y){
+  std::cerr << "Point::Point(double, double)" << std::endl;
 }
 
 Point::Point(const Point& point)
   : x(point.x), y(point.y){
+  std::cerr << "Point::Point(const Point&)" << std::endl;
 }
 
 Point::~Point(){
+  std::cerr << "Point::~Point()" << std::endl;
 }
 
 double Point::distance(const Point& point) const {
-  // TODO
-  return 0;
+  return sqrt( (point.x - this->x) * (point.x - this->x) + 
+               (point.y - this->y) * (point.y - this->y)  );
 }
 
 std::ostream& operator << (std::ostream& os, const Point& point) {
