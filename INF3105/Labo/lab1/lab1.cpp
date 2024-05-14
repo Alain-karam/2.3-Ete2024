@@ -6,10 +6,12 @@
 *************************************************/
 
 #include <iostream>
+#include <vector>
+
 #include "point.h"
 
 /************************************************************************
-INSTRUCTIONS: 
+INSTRUCTIONS:
    Suivez rigoureusement les tâches à http://ericbeaudry.ca/INF3105/lab1/.
    NE sautez PAS d'étape !
    Si vous sautez une étape ou tentez d'aller trop rapidement,
@@ -24,28 +26,21 @@ int main1(int argc, const char** args)
 }
 
 
-
 int main2(int argc, const char** args)
 {
-  Point point(3, 105);
+  Point point(9, 108);
   std::cout << point;
   std::cout << std::endl; // fin de ligne
   return 0;
 }
-*/
 
-
-
-int main(int argc, const char** args)
+int main3(int argc, const char** args)
 {
   Point point(1.2,5.7);
   std::cout << "point.x=" << point.x << "\tpoint.y=" << point.y << std::endl;
   return 0;
 }
 
-
-
-/*
 int main4(int argc, const char** args)
 {
   Point point;
@@ -57,7 +52,6 @@ int main4(int argc, const char** args)
 }
 
 
-
 int main5(int argc, const char** args)
 {
   Point a(0,0);
@@ -66,15 +60,34 @@ int main5(int argc, const char** args)
   std::cout << "Distance("<< a << "," << b << ")=" << d << std::endl;
   return 0;
 }
+*/
 
 
-
-int main6(int argc, const char** args)
+int main(int argc, const char** args)
 {
   int nb;
   std::cin >> nb;
 
+  std::vector<Point> points;
+  Point temp;
+
+  for (int i = 0 ; i < nb ; i++) {
+    std::cin >> temp;
+    points.push_back(temp);
+  }
+
+  for (const Point& p : points) {
+        std::cout << p << std::endl;
+    }
+
+  Point closestP1, closestP2;
+  double minDistance;
+
+  findClosestPoints(points, closestP1, closestP2, minDistance);
+
+  std::cout << "Les deux points les plus proches sont: " << closestP1 << " et " << closestP2 << std::endl;
+  std::cout << "La distance entre eux est: " << minDistance << std::endl;
+
 
   return 0;
 }
-*/

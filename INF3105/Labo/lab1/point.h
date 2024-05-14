@@ -1,4 +1,5 @@
 /************************************************
+ * hello
   Laboratoire 1
   INF3105 | Structures de données et algorithmes
   UQAM | Département d'informatique
@@ -15,6 +16,7 @@ INSTRUCTIONS:
 // Attention: Il faut toujours fermer le #if par un #endif à la toute fin. Voir dernière ligne.
 
 #include <iostream>
+#include <vector>
 
 
 class Point {
@@ -23,16 +25,18 @@ class Point {
     Point(double x, double y);
     Point(const Point&);
 
-    float distance(const Point&) const;
+    double distance(const Point&) const;
 
-  //private: // ne pas décommenter tout de suite
+  private: // ne pas décommenter tout de suite
     double x;
-    double a;
+    //double a;
     double y;
 
   friend std::ostream& operator << (std::ostream&, const Point&);
   friend std::istream& operator >> (std::istream&, Point&);
 };
+
+void findClosestPoints(const std::vector<Point>& points, Point& closestP1, Point& closestP2, double& minDistance);
 
 #endif // fin du #if plus haut
 

@@ -1,5 +1,5 @@
 #Option -g pour avoir les infos de débogage
-OPTIONS = -g -O0 -Wall
+OPTIONS = -g -O3 -Wall
 
 #Option -O3 pour le code optimisé
 #OPTIONS = -O3 -Wall
@@ -9,7 +9,7 @@ OPTIONS = -g -O0 -Wall
 lab1: lab1.o point.o
 	g++ $(OPTIONS) -o lab1 lab1.o point.o
 
-lab1.o: lab1.cpp point.o
+lab1.o: lab1.cpp point.h
 	g++ $(OPTIONS) -c -o lab1.o lab1.cpp
 
 point.o: point.cpp point.h
